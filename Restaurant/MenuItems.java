@@ -10,7 +10,7 @@ public class MenuItems {
     private Date dateAdded;
     private boolean isNew;
 
-    public MenuItem(double price, String description, String category, Date dateAdded, boolean isNew) {
+    public MenuItems(double price, String description, String category, Date dateAdded, boolean isNew) {
         this.price = price;
         this.description = description;
         this.category = category;
