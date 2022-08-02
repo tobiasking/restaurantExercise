@@ -2,30 +2,52 @@ package Restaurant;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Arrays;
 
 public class Menu {
+    private Date dateLastUpdated;
 
-    private Date lastUpdated;
-    private ArrayList<MenuItems> menuList;
+    private ArrayList<String> categories = new ArrayList<>(
+            Arrays.asList("appetizer", "main course", "dessert")
+    );
 
-    public Menu(Date lastUpdated, ArrayList<MenuItems> menuList) {
-        this.lastUpdated = lastUpdated;
-        this.menuList = menuList;
+    private ArrayList<MenuItem> items;
+
+    public Menu(ArrayList<MenuItem> items) {
+        this.items = items;
+        this.dateLastUpdated = new Date();
     }
 
-    public Date getLastUpdated() {
-        return lastUpdated;
+
+    public ArrayList<MenuItem> getItems() {
+        return items;
     }
 
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public ArrayList<String> getCategories() {
+        return categories;
     }
 
-    public ArrayList<MenuItems> getMenuList() {
-        return menuList;
+    public Date getDateLastUpdated() {
+        return dateLastUpdated;
     }
 
-    public void setMenuList(ArrayList<MenuItems> menuList) {
-        this.menuList = menuList;
+
+    // Method to add menu item
+    public void addMenuItem(MenuItem item) {
+        this.items.add(item);
+        item.isNew = true;
+    }
+
+    // Method to delete menu item
+    public void removeMenuItem(MenuItem item){
+        this.items.remove(item);
+    }
+
+    public void printMenu() {
+        System.out.println("Restaurant Menu");
+        for (MenuItem menuItem : items) {
+            System.out.println(menuItem.toString() + "\n");
+        }
+        System.out.println("Date Last Updated: " + getDateLastUpdated());
     }
 }
