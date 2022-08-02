@@ -4,12 +4,12 @@ import java.util.Date;
 import java.util.Objects;
 
 public class MenuItem {
-    public String foodName;
-    public double price;
-    public String description;
-    public String category;
+    private String foodName;
+    private double price;
+    private String description;
+    private String category;
     public boolean isNew; // Tells if the menu item is new to the menu
-    public Date dateAdded; // Date menu item is added so that we can tell if it isNew
+    private Date dateAdded; // Date menu item is added so that we can tell if it isNew
 
 
     public MenuItem(String foodName, double price, String description, String category) {
